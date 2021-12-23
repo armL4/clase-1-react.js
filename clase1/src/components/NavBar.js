@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "./../static/pixel-cafe.png"
+
 const NavBar = () => {
+    return(
     <nav className="NavBar">
         <div>
         <h3>
@@ -23,5 +25,6 @@ const NavBar = () => {
                 0
         </button>
     </nav>
+    )
 }
-export default NavBar
+export default NavBar;
