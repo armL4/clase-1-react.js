@@ -1,15 +1,21 @@
 import React from "react";
 import logo from "./../static/pixel-cafe.png"
-
+import { Carro } from "./Carro";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
+import ItemCount from "./ItemCount";
 const NavBar = () => {
     return(
     <nav className="NavBar">
         <div>
         <h3>
             marca pendiente
+            
         </h3>
+        
         </div>
         <div className="categorias">
+        <Button variant="primary">Primary</Button>{' '}
             <button className="opcion">
                 inicio
             </button>
@@ -19,12 +25,18 @@ const NavBar = () => {
             <button className="opcion">
                 nosotros
             </button>
+            <button className="opcion">
+            <Carro/>
+            </button>
+            
+            
         </div>
         <button>
                 <img src={logo} alt="cart"/>
-                0
         </button>
+        <ItemCount/>
     </nav>
+    
     )
 }
 export default NavBar;
