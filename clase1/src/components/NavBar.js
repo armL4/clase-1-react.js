@@ -34,7 +34,7 @@ const NavBar = () => {
         <button>
                 <img src={logo} alt="cart"/>
         </button>
-        <ItemCount/>
+        <ItemCount min={0} max={10}/>
     </nav>
     
     )
