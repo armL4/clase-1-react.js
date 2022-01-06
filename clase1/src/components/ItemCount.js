@@ -1,48 +1,50 @@
-import React, {useState} from 'react'
+import React , {useState} from 'react';
 
-function UserGreeting(props) {
-    return <h1>Welcome back!</h1>;
-  }
-  
-  function GuestGreeting(props) {
-    return <h1>Please sign up.</h1>;
-  }
-  
-  function Greeting(props) {
-    const isLoggedIn = props.isLoggedIn;
-    /* cambio de true o false para cambiar lo que muestra en pantalla */
-    if (true) {
-      return <UserGreeting/>;
-    }
-    return <GuestGreeting />;
-  }
 
-export const ItemCount = ({min , max}) => {
-    const [counter, setCounter] = useState(min)
-    const HadleIncrement=() =>{
-        if (counter<max) {
-            setCounter(prev=>prev+1)
-        }
-        else{
-            alert("stock maximo")
-        }
+
+const ItemCount = ({min,max}) => {
+
+    
+    
+    const [counter, setCounter] =  useState(min);   
+    const [stock , setStock]  = useState(9);
+    
+    const onAdd = () => {
+        (counter < max) && setCounter(counter +1) ;
+        (stock >= 1) && setStock(stock - 1);
+
     }
-    const HadleDecrement=() =>{
-        if (counter>min) {
-            setCounter(prev=>prev-1)
-        }
-        else{
-            alert("no se puede realizar la accion")
-        }
-        }
-        return(
-            <div>
-            <Greeting />
-            <h1>{counter}</h1>
-            <button onClick={()=>HadleIncrement(counter+1)}>mas</button>
-            <button onClick={()=>HadleDecrement(counter-1)}>menos</button>
+
+    const onRest = () => {
+       (counter > min ) &&  setCounter(counter -1) ;
+       (stock < 9) && setStock(stock + 1);
+    }
+
+    const resetear = () => {
+        setCounter(min)
+        setStock(9)
+    }
+    
+    
+    return (
+        <div className="producto">
+            
+            <div className="stockCantidad">
+            <p>Cantidad: {counter}</p>
+            <p>Stock {stock}</p>
             </div>
-            )
+
+            <div className="buttons">
+            <button onClick ={onAdd}>+</button>
+            <button  onClick ={resetear}>Reset</button>
+            <button onClick ={onRest}>-</button>
+            </div>
+                <hr></hr>
+            <div className="buy">
+            <button>Comprar</button>
+            </div>
+        </div>
+    )
 }
 
 export default ItemCount

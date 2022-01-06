@@ -4,6 +4,7 @@ import { Carro } from "./Carro";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import ItemCount from "./ItemCount";
+import ItemListContainer from "./ItemListContainer";
 const NavBar = () => {
     return(
     <nav className="NavBar">
@@ -35,6 +36,8 @@ const NavBar = () => {
                 <img src={logo} alt="cart"/>
         </button>
         <ItemCount min={0} max={10}/>
+
+        <ItemListContainer/>
     </nav>
     
     )
